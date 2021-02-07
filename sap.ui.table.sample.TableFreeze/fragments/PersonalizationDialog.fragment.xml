@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<P13nDialog ok="onOK">
+        <panels>
+            <P13nColumnsPanel items="{persoModel>/aColumnItem}" columnsItems="{persoModel>/aColumnItem}" changeColumnsItems="onChangeColumnsItems">
+                <items>
+                    <P13nItem columnKey="{persoModel>columnKey}" text="{persoModel>text}" />
+                </items>
+                <columnsItems>
+                    <P13nColumnsItem
+                        columnKey="{persoModel>columnKey}"
+                        index="{persoModel>index}"
+                        width="{persoModel>width}"
+                        visible="{persoModel>visible}" />
+                </columnsItems>
+            </P13nColumnsPanel>
+            <P13nSortPanel
+                items="{persoModel>/aColumnItem}"
+                sortItems="{persoModel>/aSortItem}"
+                addSortItem="onChangeSortItem"
+                updateSortItem="onChangeSortItem"
+                removeSortItem="onChangeSortItem">
+                <items>
+                    <P13nItem columnKey="{persoModel>columnKey}" text="{persoModel>text}" />
+                </items>
+                <sortItems>
+                    <P13nSortItem columnKey="{persoModel>columnKey}" operation="{persoModel>operation}" />
+                </sortItems>
+            </P13nSortPanel>
+            <P13nGroupPanel
+                maxGroups="1"
+                items="{persoModel>/aColumnItem}"
+                groupItems="{persoModel>/aGroupItem}"
+                addGroupItem="onChangeGroupItem"
+                updateGroupItem="onChangeGroupItem"
+                removeGroupItem="onChangeGroupItem">
+                <items>
+                    <P13nItem columnKey="{persoModel>columnKey}" text="{persoModel>text}" />
+                </items>
+                <groupItems>
+                    <P13nGroupItem 
+                        columnKey="{persoModel>columnKey}"
+                        operation="{persoModel>operation}"
+                        showIfGrouped="{persoModel>showIfGrouped}"
+                    />
+                </groupItems>
+            </P13nGroupPanel>
+        </panels>
+    </P13nDialog>
+</core:FragmentDefinition>
