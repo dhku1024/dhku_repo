@@ -89,7 +89,7 @@ sap.ui.define([
 
 			oTable.setFixedColumnCount(iColumnCount);
 			oTable.setFixedRowCount(iRowCount);
-			oTable.setFixedBottomRowCount(iBottomRowCount);
+			//oTable.setFixedBottomRowCount(iBottomRowCount);
 		}
 
 	});
