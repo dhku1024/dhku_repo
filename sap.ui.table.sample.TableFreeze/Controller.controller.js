@@ -1681,3 +1681,94 @@ sap.ui.define([
         }
     });
 });
+
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<P13nDialog
+		showReset="true"
+		showResetEnabled="{layoutModel>/bResetEnabled}"
+		ok="onOK"
+		cancel="onCancel"
+		reset="onCancel"
+		beforeOpen="onBeforeOpen">
+        <panels>
+            <P13nColumnsPanel
+            	visible="{layoutModel>/columns/visible}"
+            	items="{persoModel>/aItem}"
+            	columnsItems="{persoModel>/aColumnItem}"
+            	changeColumnsItems="onChangeColumnsItems">
+                <items>
+                    <P13nItem columnKey="{persoModel>columnKey}" text="{persoModel>text}" />
+                </items>
+                <columnsItems>
+                    <P13nColumnsItem
+                        columnKey="{persoModel>columnKey}"
+                        index="{persoModel>index}"
+                        width="{persoModel>width}"
+                        visible="{persoModel>visible}">
+                   <!--      <customData>
+                        	<core:customData key="columnId" value="{persoModel>columnId}" />
+                        	<core:customData key="columnName" value="{persoModel>columnName}" />
+                        	<core:customData key="columnHAlign" value="{persoModel>hAlign}" />
+                        	<core:customData key="existMultiLabels" value="{persoModel>existMultiLabels}" />
+                        </customData> -->
+                    </P13nColumnsItem>
+                </columnsItems>
+            </P13nColumnsPanel>
+            <P13nSortPanel
+            	visible="{layoutModel>/sort/visible}"
+                items="{persoModel>/aItem}"
+                sortItems="{persoModel>/aSortItem}"
+                addSortItem="onChangeSortItem"
+                updateSortItem="onChangeSortItem"
+                removeSortItem="onChangeSortItem">
+                <items>
+                    <P13nItem columnKey="{persoModel>columnKey}" text="{persoModel>text}" />
+                </items>
+                <sortItems>
+                    <P13nSortItem columnKey="{persoModel>columnKey}" operation="{persoModel>operation}" />
+                </sortItems>
+            </P13nSortPanel>
+            <P13nFilterPanel
+            	visible="{layoutModel>/filter/visible}"
+            	items="{persoModel>/aItem}"
+            	filterItems="{persoModel>/aFilterItem}"
+            	filterItemChanged="onChangeFilterItem">
+            	<!--addFilterItem="onChangeFilterItem"
+            	updateFilterItem="onChangeFilterItem"
+            	removeFilterItem="onChangeFilterItem"-->
+            	<items>
+                    <P13nItem columnKey="{persoModel>columnKey}" text="{persoModel>text}" type="{persoModel>type}" />
+                </items>
+                <filterItems>
+                	<P13nFilterItem 
+                		columnKey="{persoModel>columnKey}"
+                		exclude="{persoModel>exclude}"
+                		operation="{persoModel>operation}"
+                		value1="{persoModel>value1}"
+                		value2="{persoModel>value2}" />
+                </filterItems>
+            </P13nFilterPanel>
+            <P13nGroupPanel
+            	visible="{layoutModel>/group/visible}"
+                maxGroups="1"
+                items="{persoModel>/aItem}"
+                groupItems="{persoModel>/aGroupItem}"
+                addGroupItem="onChangeGroupItem"
+                updateGroupItem="onChangeGroupItem"
+                removeGroupItem="onChangeGroupItem">
+                <items>
+                    <P13nItem columnKey="{persoModel>columnKey}" text="{persoModel>text}" />
+                </items>
+                <groupItems>
+                    <P13nGroupItem 
+                        columnKey="{persoModel>columnKey}"
+                        operation="{persoModel>operation}"
+                        showIfGrouped="{persoModel>showIfGrouped}" />
+                </groupItems>
+            </P13nGroupPanel>
+        </panels>
+    </P13nDialog>
+</core:FragmentDefinition>
